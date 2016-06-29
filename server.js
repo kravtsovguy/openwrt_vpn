@@ -1,6 +1,8 @@
 var express         = require('express');
 var app = express();
 
+app.set('port', (process.env.PORT || 5000));
+
 var firebase = require("firebase");
 var config = {
     apiKey: "AIzaSyBVIIO1uddakhBOGXNesEovQ4pRcDwd-c8",
@@ -26,6 +28,6 @@ app.get('/vpn/:mac', function (req, res) {
 	});	
 });
 
-app.listen(1337, function(){
-    console.log('Express server listening on port 1337');
+app.listen(app.get('port'), function(){
+    console.log('Node app is running on port', app.get('port'));
 });
