@@ -6,14 +6,11 @@ var config = {
     apiKey: "AIzaSyBVIIO1uddakhBOGXNesEovQ4pRcDwd-c8",
     authDomain: "openwrtvpn-42b5b.firebaseapp.com",
     databaseURL: "https://openwrtvpn-42b5b.firebaseio.com",
-    storageBucket: "",
+    storageBucket: "openwrtvpn-42b5b.appspot.com",
   };
+
 firebase.initializeApp(config);
-
 var db = firebase.database();
-
-	var db = firebase.database();
-	
 	
 app.get('/vpn/:mac', function (req, res) {
 	//var r = db.ref("users/c4:6e:1f:e2:4e:fb");
@@ -22,7 +19,11 @@ app.get('/vpn/:mac', function (req, res) {
 	var ref = db.ref("users/"+req.params.mac);
 	ref.once("value", function(snapshot) {
 		var v = snapshot.val();
-		res.send(v.login + "\n" + v.password);
+        if(v!=null)
+            res.send(v.login + "\n" + v.password);
+        else
+            res.send("empty\nempty");
+        
 		console.log('Requested '+JSON.stringify(v)+' for '+req.params.mac);
 	});	
 });
@@ -30,14 +31,3 @@ app.get('/vpn/:mac', function (req, res) {
 app.listen(1337, function(){
     console.log('Express server listening on port 1337');
 });
-
-String.prototype.hashCode = function() {
-  var hash = 0, i, chr, len;
-  if (this.length === 0) return hash;
-  for (i = 0, len = this.length; i < len; i++) {
-    chr   = this.charCodeAt(i);
-    hash  = ((hash << 3) - hash) + chr;
-    hash |= 0; // Convert to 32bit integer
-  }
-  return hash;
-};

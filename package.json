@@ -1,0 +1,17 @@
+{
+  "name": "openwrt_vpn",
+  "version": "1.0.0",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "firebase": "3.1.0",
+    "express": "4.14.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kravtsovguy/openwrt_vpn"
+  },
+  "license": "MIT"
+}
