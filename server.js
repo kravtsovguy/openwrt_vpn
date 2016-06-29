@@ -2,6 +2,7 @@ var express         = require('express');
 var app = express();
 
 app.set('port', (process.env.PORT || 5000));
+application.use("/public", express.static(path.join(__dirname, 'public')));
 
 var firebase = require("firebase");
 var config = {
