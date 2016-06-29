@@ -13,9 +13,7 @@ firebase.initializeApp(config);
 var db = firebase.database();
 	
 app.get('/vpn/:mac', function (req, res) {
-	//var r = db.ref("users/c4:6e:1f:e2:4e:fb");
-	//r.set({"login":"syka", "password":"bleat1234"});
-	
+    
 	var ref = db.ref("users/"+req.params.mac);
 	ref.once("value", function(snapshot) {
 		var v = snapshot.val();
