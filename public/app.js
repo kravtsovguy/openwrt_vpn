@@ -9,7 +9,7 @@
     config.$inject = ['$routeProvider', '$locationProvider'];
     function config($routeProvider, $locationProvider) {
         $routeProvider
-            .when('/', {
+            .when('/home', {
                 controller: 'HomeController',
                 templateUrl: 'home/home.view.html',
                 controllerAs: 'vm'
@@ -21,7 +21,7 @@
                 controllerAs: 'vm'
             })
 
-            .otherwise({ redirectTo: '/' });
+            .otherwise({ redirectTo: '/pay' });
     }
 
     run.$inject = ['$rootScope', '$location', '$cookieStore', '$http','$window'];
