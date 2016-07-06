@@ -1,8 +1,14 @@
+"use strict";
+
 var express = require('express');
 var app = express();
 
+
 app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
+
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
 
 var firebase = require("firebase");
 var config = {
@@ -17,7 +23,7 @@ var db = firebase.database();
 	
 app.get('/vpn/:mac', function (req, res) {
     
-	var ref = db.ref("users/"+req.params.mac);
+	var ref = db.ref("users/" + req.params.mac);
 	ref.once("value", function(snapshot) {
 		var v = snapshot.val();
         if(v!=null)
@@ -27,6 +33,10 @@ app.get('/vpn/:mac', function (req, res) {
         
 		console.log('Requested '+JSON.stringify(v)+' for '+req.params.mac);
 	});	
+});
+
+app.get('/', function (req, res) {
+    res.render('index', { title: 'Hey'});
 });
 
 app.listen(app.get('port'), function(){

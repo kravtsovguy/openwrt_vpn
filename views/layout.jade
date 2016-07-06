@@ -1,0 +1,23 @@
+doctype html
+html
+  head
+    title= title
+
+    //indicate that our site is mobile optimized
+    meta(name='viewport', content='width=device-width, initial-scale=1.0')
+
+    //reference our site-specific css
+    //link(rel='stylesheet', href='/stylesheets/style.css')
+
+    script(src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js')
+    script(src='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/js/bootstrap.min.js')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap-theme.min.css')
+    link(rel='stylesheet', href='//cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.2.0/css/bootstrap.min.css')
+  body
+    
+    .jumbotron
+        .container
+                h1 VPN Трилистник
+                h2 Здесь ты сможешь подключить себе VPN на роутер, а следовательно катать в кс и скачивать торренты
+
+    block pageContent

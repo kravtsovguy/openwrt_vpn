@@ -1,0 +1,15 @@
+extends layout
+
+block pageContent
+    .container
+        .panel.panel-primary
+          .panel-heading
+            h3.panel-title 1. Скачайте прошивку OpenWRT на ваш роутер и установите ее
+          .panel-body
+            label Перейдите по ссылке внизу, найдите по названию роутера вашу прошивку OpenWRT
+            br
+            label Убедитесь, что название прошивки заканчивается на '...squashfs-factory.bin'
+            br
+            label Скачайте и установите её на роутер
+            br
+            a.btn.btn-default(href="https://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/") Скачать прошивку
