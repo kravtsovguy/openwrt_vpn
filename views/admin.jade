@@ -17,7 +17,7 @@ block pageContent
             div(ng-if='user != null')
                 .panel.panel-primary
                     .panel-heading
-                        h3.panel-title Данные
+                        h3.panel-title Текущие данные
                     ul.list-group
                         li.list-group-item Логин: {{user.login}}
                         li.list-group-item Пароль: {{user.password}}
@@ -26,7 +26,7 @@ block pageContent
                     .panel-heading
                         h3.panel-title Введите новые данные
                     .panel-body
-                        form.form-horizontal
+                        form.form-horizontal(ng-submit="saveUser()")
                           fieldset
                             .form-group.col-lg-10
                                 label.control-label(for='inputLogin') Логин
@@ -35,7 +35,7 @@ block pageContent
                                 label.control-label(for='inputPass') Пароль
                                 input#inputPass.form-control(type='text', placeholder='password', ng-model="nuser.password")
                             .form-group.col-lg-10
-                                button.btn.btn-primary(type='submit', ng-click="saveUser()") Сохранить        
+                                button.btn.btn-primary(type='submit') Сохранить        
                 
                     
                 
