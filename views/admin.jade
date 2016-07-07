@@ -4,15 +4,15 @@ block pageContent
     div(ng-app="myApp" ng-controller="myCtrl")
         .container
             br
-            form.form-horizontal
+            form.form-horizontal(ng-submit="findUser()")
               fieldset
                 legend Введите MAC-адрес
                 .form-group
                   .col-lg-10
-                    input#inputMAC.form-control(type='text', placeholder='MAC', ng-model="mac")
+                    input#inputMAC.form-control(type='text', placeholder='MAC', ng-model="mac" required)
                 .form-group
                   .col-lg-10
-                    button.btn.btn-primary(type='submit', ng-click="findUser()") Посмотреть
+                    button.btn.btn-primary(type='submit') Посмотреть
    
             div(ng-if='user != null')
                 .panel.panel-primary

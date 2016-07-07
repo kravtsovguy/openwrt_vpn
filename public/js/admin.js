@@ -1,6 +1,6 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $location, $http) {
-    $scope.myUrl = $location.absUrl();
+    //$scope.myUrl = $location.absUrl();
     
     $scope.findUser = function(){
         $http.get("/api/user/"+$scope.mac)
