@@ -1,0 +1,43 @@
+extends layout
+
+block pageContent
+    div(ng-app="myApp" ng-controller="myCtrl")
+        .container
+            br
+            form.form-horizontal
+              fieldset
+                legend Введите MAC-адрес
+                .form-group
+                  .col-lg-10
+                    input#inputMAC.form-control(type='text', placeholder='MAC', ng-model="mac")
+                .form-group
+                  .col-lg-10
+                    button.btn.btn-primary(type='submit', ng-click="findUser()") Посмотреть
+   
+            div(ng-if='user != null')
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title Данные
+                    ul.list-group
+                        li.list-group-item Логин: {{user.login}}
+                        li.list-group-item Пароль: {{user.password}}
+                        
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title Введите новые данные
+                    .panel-body
+                        form.form-horizontal
+                          fieldset
+                            .form-group.col-lg-10
+                                label.control-label(for='inputLogin') Логин
+                                input#inputLogin.form-control(type='text', placeholder='login', ng-model="nuser.login")
+                            .form-group.col-lg-10
+                                label.control-label(for='inputPass') Пароль
+                                input#inputPass.form-control(type='text', placeholder='password', ng-model="nuser.password")
+                            .form-group.col-lg-10
+                                button.btn.btn-primary(type='submit', ng-click="saveUser()") Сохранить        
+                
+                    
+                
+            
+    script(src='/js/admin.js')

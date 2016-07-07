@@ -8,10 +8,12 @@
     "start": "node server"
   },
   "dependencies": {
-    "firebase": "^3.1.0",
-    "express": "^4.14.0",
-    "jade": "^1.11.0",
-    "nodemon": "^1.9.1"
+    "firebase": "*",
+    "express": "*",
+    "jade": "*",
+    "nodemon": "*",
+    "request": "*",
+    "body-parser": "*"
   },
   "repository": {
     "type": "git",
