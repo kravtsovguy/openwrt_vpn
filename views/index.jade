@@ -3,44 +3,61 @@ extends layout
 block pageTitle
     .jumbotron
         .container
-                h2 Здесь ты сможешь подключить себе VPN на роутер, а следовательно катать в кс и скачивать торренты, не устанавливая никаких программ на компьютер
-                h2 Что для этого нужно сделать:
+                h4 Здесь ты сможешь подключить себе VPN на роутер, а следовательно катать в кс и скачивать торренты, не устанавливая никаких программ на компьютер
+                br
+                .list-group
+                  a.list-group-item(data-toggle="tab", href='#v1')
+                    h4.list-group-item-heading Настроить VPN за меня
+                    p.list-group-item-text Если вы не хотите разбираться во всем этом, мы сделаем это за вас =)
+                  a.list-group-item(data-toggle="tab", href='#v2')
+                    h4.list-group-item-heading Хочу настроить сам
+                    p.list-group-item-text Самостоятельно настроить VPN на роутере с помощью инструкции
 
 block pageContent
     .container
-        .panel.panel-primary
-          .panel-heading
-            h3.panel-title 1. Скачайте прошивку OpenWRT на ваш роутер и установите ее
-          ul.list-group
-            li.list-group-item Перейдите по ссылке внизу, найдите по названию роутера вашу прошивку OpenWRT
-            li.list-group-item Убедитесь, что название прошивки заканчивается на '...squashfs-factory.bin'
-            li.list-group-item Скачайте и установите её на роутер
-            li.list-group-item 
-                a.btn.btn-info.btn-sm(href="https://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/") Скачать прошивку
-        br
-        .panel.panel-primary
-          .panel-heading
-            h3.panel-title 2. Настройте роутер
-          ul.list-group
-            li.list-group-item Подключитесь к роутеру по lan кабелю и зайдите на адрес http://192.168.1.1
-            li.list-group-item Изначально пароль не стоит, поэтому зайдете в панель администратора и установите его там
-        br
-        .panel.panel-primary
-          .panel-heading
-            h3.panel-title 3. Восстановитесь из backup файла
-          ul.list-group
-            li.list-group-item Скачайте backup файл для OpenWRT
-            li.list-group-item Затем установите его на вашу прошивку
-            li.list-group-item
-                a.btn.btn-info.btn-sm(href="https://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/") Скачать backup
-        br
-        .panel.panel-primary
-            .panel-heading
-                h3.panel-title 4. Зайдите на роутер
-            ul.list-group
-                li.list-group-item Должна появиться wifi сеть, можете теперь подключиться к ней и не использовать провода
-                li.list-group-item Перейдите во вкладку VPN и посмотрите ваш MAC-адрес устройства
-                li.list-group-item Отошлите его нам и когда мы вам сообщим, можете перегрузить роутер
-                li.list-group-item VPN будет работать!
-                li.list-group-item
-                    a.btn.btn-info.btn-sm(href="/pay") Заплатить за месяц
+        
+         .tab-content
+              #v1.tab-pane.fade.in.active     
+               .panel.panel-primary
+                  .panel-heading
+                    h3.panel-title Всё просто, напишите нам
+                  ul.list-group
+                    li.list-group-item Напишите нам в группе, мы придем и установим VPN на роутер за несколько минут
+
+              #v2.tab-pane.fade     
+                .panel.panel-primary
+                  .panel-heading
+                    h3.panel-title 1. Скачайте прошивку OpenWRT на ваш роутер и установите ее
+                  ul.list-group
+                    li.list-group-item Перейдите по ссылке внизу, найдите по названию роутера вашу прошивку OpenWRT
+                    li.list-group-item Убедитесь, что название прошивки заканчивается на '...squashfs-factory.bin'
+                    li.list-group-item Скачайте и установите её на роутер
+                    li.list-group-item 
+                        a.btn.btn-info.btn-sm(href="https://downloads.openwrt.org/attitude_adjustment/12.09/ar71xx/generic/") Скачать прошивку
+                br
+                .panel.panel-primary
+                  .panel-heading
+                    h3.panel-title 2. Настройте роутер
+                  ul.list-group
+                    li.list-group-item Подключитесь к роутеру по lan кабелю и зайдите на адрес http://192.168.1.1
+                    li.list-group-item Изначально пароль не стоит, поэтому зайдете в панель администратора и установите его там
+                br
+                .panel.panel-primary
+                  .panel-heading
+                    h3.panel-title 3. Восстановитесь из backup файла
+                  ul.list-group
+                    li.list-group-item Скачайте backup файл для OpenWRT
+                    li.list-group-item Затем установите его на вашу прошивку
+                    li.list-group-item
+                        a.btn.btn-info.btn-sm(href="/files/backup.tar.gz") Скачать backup
+                br
+                .panel.panel-primary
+                    .panel-heading
+                        h3.panel-title 4. Зайдите на роутер
+                    ul.list-group
+                        li.list-group-item Должна появиться wifi сеть, можете теперь подключиться к ней и не использовать провода
+                        li.list-group-item Перейдите во вкладку VPN и посмотрите ваш MAC-адрес устройства
+                        li.list-group-item Отошлите его нам и когда мы вам сообщим, можете перегрузить роутер
+                        li.list-group-item VPN будет работать!
+                        li.list-group-item
+                            a.btn.btn-info.btn-sm(href="/pay") Заплатить за месяц

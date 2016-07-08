@@ -6,6 +6,17 @@ body {
     background-color:white !important;
 }
 
+
+  .navbar-nav {
+    width: 100%;
+    text-align: center;
+  }
+  .navbar-nav > li {
+    float: none;
+    display: inline-block;
+    font-size: 1.5em;
+  }
+
 .header{
   background: url('https://images.unsplash.com/photo-1451337516015-6b6e9a44a8a3?crop=entropy&fit=crop&fm=jpg&h=975&ixjsv=2.1.0&ixlib=rb-0.3.5&q=80&w=1925');
   background-position: center;
@@ -32,4 +43,5 @@ body {
 .footer p{
     color: #444;
     font-size: 18px;
+    text-align: center;
 }

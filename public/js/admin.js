@@ -1,7 +1,8 @@
 var app = angular.module('myApp', []);
 app.controller('myCtrl', function($scope, $location, $http) {
     //$scope.myUrl = $location.absUrl();
-    
+    //alert($location.absUrl());
+
     $scope.findUser = function(){
         $http.get("/api/user/"+$scope.mac)
         .then(function(response) {
@@ -22,4 +23,11 @@ app.controller('myCtrl', function($scope, $location, $http) {
             }
         );
     }
+    var unregister = $scope.$watch('mac', function() {
+        unregister();
+        if($scope.mac!='') $scope.findUser();
+    });
+    
+
+    
 });

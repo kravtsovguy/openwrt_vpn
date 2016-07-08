@@ -6,6 +6,7 @@ var bodyParser = require('body-parser')
 var express = require('express');
 var app = express();
 
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(bodyParser.json())
 
 var request = require('request');
@@ -66,14 +67,18 @@ app.put('/api/user/:mac', function (req, res) {
 });
 
 app.get('/', function (req, res) {
-    res.render('index', { title: 'VPN'});
+    res.render('index');
 });
 app.get('/pay', function (req, res) {
     res.render('pay');
 });
 
 app.get('/admin', function (req, res) {
-    res.render('admin');
+    res.render('admin', {mac:''});
+});
+
+app.get('/admin/:mac', function (req, res) {
+    res.render('admin',{mac: req.params.mac});
 });
 
 app.use(function(req, res){

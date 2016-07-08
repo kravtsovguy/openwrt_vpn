@@ -1,7 +1,7 @@
 extends layout
 
 block pageContent
-    div(ng-app="myApp" ng-controller="myCtrl")
+    div(ng-app="myApp" ng-controller="myCtrl" ng-init="mac='#{mac}'")
         .container
             br
             form.form-horizontal(ng-submit="findUser()")
